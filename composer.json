@@ -17,6 +17,6 @@
 		"psr-4": {
 			"Buersoft\\Tinylaravel\\": "./src/"
 		}
-	}
+	},
     "require": {}
 }
