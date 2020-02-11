@@ -1,0 +1,22 @@
+{
+    "name": "buersoft/tiny-laravel",
+    "description": "this is a framework learning from laravel, but it`s smaller",
+	"keywords": [
+	    "framework",
+	    "laravel"
+	],
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yang Hong",
+            "email": "yh15229262120@qq.com"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"Buersoft\\Tinylaravel\\": "./src/"
+		}
+	}
+    "require": {}
+}
