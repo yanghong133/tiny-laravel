@@ -20,12 +20,12 @@ class Container
 	}
 	
 	//4、解析方法
-	public function make($abstract)
+	public function make($abstract, $parameters = [])
 	{
-		return $this->resolve($abstract);
+		return $this->resolve($abstract, $parameters);
 	}
 	
-	public function resolve($abstract)
+	public function resolve($abstract, $parameters = [])
 	{
 		if(isset($this->instances[$abstract])){
 			return $this->instances[$abstract];
@@ -45,13 +45,7 @@ class Container
 		}
 		
 		//2、判断是否是一个对象
-		// if(is_object($object)){
-		// 	return $object;
-		// }else{
-		// 	return new $object();
-		// }
-		
-		return $this->instances[$abstract] = is_object($object) ? $object : new $object();
+		return $this->instances[$abstract] = is_object($object) ? $object : new $object(...$parameters);
 	}
 	
 	public function has($abstract)
@@ -60,7 +54,7 @@ class Container
 	}
 	
 	//单例创建；返回的是当前实例化的对象，该对象的实例化符合单例模式
-	public function getInstance()
+	public static function getInstance()
 	{
 		if(is_null(static::$instance)){
 			//new self() 和 new static() 的区别
@@ -75,7 +69,7 @@ class Container
 	
 	//单例赋值，它不是实例化而是直接将对象赋值给单例， setInstance、getInstance都是给继承它的类的对象使用的，否则他们没有存在的意义
 	//如果不存在继承关系，getInstance中的new static 与 new self()都是当前类本身，与$this 应该是全等的
-	public function setInstance($container = null)
+	public static function setInstance($container = null)
 	{
 		return static::$instance = $container;
 	}
