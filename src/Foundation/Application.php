@@ -5,6 +5,8 @@ namespace Buersoft\Tinylaravel\Foundation;
 use Buersoft\Tinylaravel\Container\Container;
 use Buersoft\Tinylaravel\Database\Mysql\DB as MysqlDB;
 use Buersoft\Tinylaravel\Database\Oracle\DB as OracleDB;
+use Buersoft\Tinylaravel\Route\Route;
+use Buersoft\Tinylaravel\Request\Request;
 
 class Application extends Container
 {
@@ -28,6 +30,8 @@ class Application extends Container
 			'mysql' => MysqlDB::class,
 			'oracle' => OracleDB::class,
 			'db' => MysqlDB::class,
+			'route' => Route::class,
+			'request' => Request::class,
 		];
 		
 		foreach($bind as $key=>$value){
