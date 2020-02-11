@@ -15,7 +15,8 @@
     ],
 	"autoload": {
 		"psr-4": {
-			"Buersoft\\Tinylaravel\\": "./src/"
+			"Buersoft\\Tinylaravel\\": "./src/",
+			"App\\": "./application/"
 		}
 	},
     "require": {}
