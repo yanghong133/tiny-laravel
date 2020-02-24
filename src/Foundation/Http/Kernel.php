@@ -11,6 +11,13 @@ class Kernel implements KernelInterface
 	protected $app;
 	protected $route;
 	
+	/**
+	 * All of the verbs supported by the router.
+	 *
+	 * @var array
+	 */
+	public static $verbs = ['GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'];    
+	
 	public function __construct(Application $app, Route $route)
 	{
 		$this->app = $app;
